@@ -1,8 +1,6 @@
 <template>
-  <div class="h-96 bg-blue-500 flex justify-center items-center">
-      <div>
-          Banner
-      </div>
+  <div class="bg-blue-500 flex justify-center items-center">
+    <img src="~/assets/images/banner/banner-3.jpg" alt="exportacion olivo">
   </div>
 </template>
 
@@ -12,6 +10,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 500px;
+    max-width: 100%;
+}
 </style>
