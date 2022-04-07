@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Agroexportaciones Elohim</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5">
+	<!-- Framework Css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/lib/bootstrap.min.css">
+	<!-- Font Awesome / Icon Fonts -->
+	<link rel="stylesheet" type="text/css" href="assets/css/lib/font-awesome.min.css">
+	<!-- Owl Carousel / Carousel- Slider -->
+	<link rel="stylesheet" type="text/css" href="assets/css/lib/owl.carousel.min.css">
+	<!-- Video YouTube -->
+	<link rel="stylesheet" type="text/css" href="assets/css/lib/lazyYT.min.css">
+	<!-- Carousel- Slider / Vertical -->
+	<link rel="stylesheet" type="text/css" href="assets/css/lib/slick.css">
+	<!-- Style Theme -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- Responsive Theme -->
+	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/elohim.css">
+	
+</head>
+
+<body>
+	<div id="app" v-cloak>
+		<div class="wrapper">
+			<!--===================== Header ========================-->
+			<header>
+				<div class="top-bar bg-black">
+					<div class="container-large">
+						<div class="row">
+							<div class="col-md-6 col-sm-6 col-xs-12 col-sm-offset-6 col-md-offset-6 text-right">
+								<ul>
+									<li><a
+											href="mailto:operaciones@agroexportelohim.com">operaciones@agroexportelohim.com</a>
+									</li>
+									<li><a href="tel:+950009769">(+51) 950 009769</a></li>
+								</ul>
+								<!--right-top-bar-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--top-bar-->
+				<div class="container-large header">
+					<div class="row">
+						<div class="col-md-3 col-sm-4 col-xs-4 col-md-offset-2">
+							<ul class="menu">
+								<li><a href="index.html">{{ $t("menu.home") }}</a></li>
+								<li class="children">
+									<a href="acerca.html">{{ $t("menu.about") }}</a>
+									<ul class="sub-menu">
+										<li><a href="acerca.html#historia">{{ $t("menu.history") }}</a></li>
+										<li><a href="acerca.html#mision">{{ $t("menu.mission") }} &amp;
+												{{ $t("menu.vision") }}</a></li>
+									</ul>
+									<!--sub-menu-->
+								</li>
+								<li class="mega-menu-top">
+									<a href="#">{{ $t("menu.products") }}</a>
+									<div class="mega-menu columns-4">
+										<ul>
+											<li class="first">Aceituna Verde</li>
+											<li><a href="productos.html#producto4">Enteras</a></li>
+											<li><a href="productos.html#producto5">Rodajas</a></li>
+											<li><a href="productos.html#producto6">Deshuesada</a></li>
+										</ul>
+										<ul>
+											<li class="first">Aceituna Negra</li>
+											<li><a href="productos.html#producto1">Enteras</a></li>
+											<li><a href="productos.html#producto2">Rodajas</a></li>
+											<li><a href="productos.html#producto3">Deshuesada</a></li>
+										</ul>
+										<ul>
+											<li class="first">Aceituna Rellena</li>
+											<li><a href="productos.html#producto7">Castaña</a></li>
+											<li><a href="productos.html#producto8">Pimiento</a></li>
+											<li><a href="productos.html#producto9">Rocoto</a></li>
+										</ul>
+										<ul>
+											<li class="first">Otros</li>
+											<li><a href="productos.html#productos">Sandia</a></li>
+											<li><a href="productos.html#productos">Orégano</a></li>
+											<li><a href="productos.html#productos">Aceite de Oliva</a></li>
+										</ul>
+									</div>
+									<!--mega-menu-->
+								</li>
+								<!--children-->
+							</ul>
+							<!--menu-->
+							<button type="button" class="menu-button">
+								<span></span>
+							</button>
+						</div>
+						<div class="col-md-2 col-sm-3 col-xs-3 text-center">
+							<div class="logo"><a href="index.html"><img src="assets/images/logoA.png" alt="logo"></a>
+							</div>
+						</div>
+						<div class="col-md-5 col-sm-5 col-xs-5 text-left">
+							<ul class="info-header">
+								<!-- <li><a href="#">{{ $t("menu.blog") }}</a></li> -->
+								<li><a href="#contacto">{{ $t("menu.contact") }}</a></li>
+								<li><a href="mundo.html">{{ $t("menu.world") }}</a></li>
+							</ul>
+							<!--info-header-->
+							<ul class="social-icon">
+								<li class="esp"><a href="#" @click="language('es')" alt="Español">&nbsp;</a></li>
+								<li class="eng"><a href="#" @click="language('en')" alt="English">&nbsp;</a></li>
+							</ul>
+							<!--social-icon-->
+						</div>
+					</div>
+				</div>
+			</header>
+			<!--============== End of Header ========================-->
+			<!--===================== Base-Slider ========================-->
+
+
+
+			<!--=============== End of Category Product ==================-->
+			<!--=================== Product Slider =======================-->
+			<!--=============== End of Product Slider ===================-->
+			<!--=================== Grid Product =======================-->
+			<div class="container-large" id="producto">
+				<div class="grid-product">
+					<div class="title-head">
+						<h2 class="text-black">{{ $t("web.title3") }}</h2>
+						<p>100% Natural</p>
+					</div>
+					<div class="row single-product" v-show="showDetail" ref="detalles" id="detalle">
+						<div class="col-md-5" style="padding-top: 10em;">
+							<div class="single-product-slider">
+								<div><img v-bind:src="'assets/images/prod/'+  selectedProduct[0].image"
+										alt="single-product"></div>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<!--================= Tab  ====================-->
+							<ul class="nav nav-tabs text-center">
+								<li class="active"><a href="#description" data-toggle="tab"
+										aria-expanded="true">{{ selectedProduct[0].name }}</a></li>
+								<li><a href="#shipping" data-toggle="tab">Envases</a></li>
+								<li><a href="#reviews" data-toggle="tab">Más detalles</a></li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane fade in active" id="description">
+									<p>{{ selectedProduct[0].description }}</p>
+									<ul class="list">
+										<template v-if="selectedProduct[0].reg != ''">
+											<li class="first">Registro Sanitario</li>
+											<li><i class="fa fa-circle"></i>{{ selectedProduct[0].reg }}</li>
+										</template>
+										<li v-if="selectedProduct[0].file != ''"><a v-bind:href="selectedProduct[0].file" target="_blank" alt="ficha técnica"><i class="fa fa-circle"></i>Ficha Técnica<i class="fa fa-file-pdf-o icon-elohim"></i></a></li>
+									</ul>
+								</div>
+								<!--tab-pane-->
+								<div class="tab-pane fade" id="shipping">
+									<p v-html="$t('products.presentation')"></p>
+								</div>
+								<!--tab-pane-->
+								<div class="tab-pane fade" id="reviews">
+									<p>{{ $t("products.aditional") }}</p>
+								</div>
+								<!--tab-pane-->
+							</div>
+							<a href="#" class="custom-btn pink" @click.prevent="close">Volver</a>
+							<hr>
+						</div>
+					</div>
+					<div class="row" id="productos" ref="products">
+						<div class="col-md-4 col-sm-6 col-xs-12" v-for="product in products">
+							<div class="product" v-bind:id="'producto'+ product.id">
+								<div class="images">
+									<a href="#"><img v-bind:src="'assets/images/prod/' + product.image"
+											v-bind:alt="product.name"></a>
+									<div class="button-group">
+										<a href="#detalle" class="custom-btn pink"
+											@click="details(product.id, product.image)"><i class="fa fa-search"></i></a>
+									</div>
+									<!--button-group-->
+								</div>
+								<!--images-->
+								<div class="info-product">
+									<a href="#" class="title">{{ product.name }}</a>
+								</div>
+								<!--info-product-->
+							</div>
+							<!--product-->
+						</div>
+					</div>
+				</div>
+				<!--grid-product-->
+				<!--banner-->
+				<div class="banner-color">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="inside text-center bg-yellow">
+								<h5>Variedad</h5>
+								<p>Tenemos todas la presentaciones para tus pedidos</p>
+							</div>
+							<!--inside-->
+						</div>
+						<div class="col-md-4">
+							<div class="inside text-center bg-yellow">
+								<h5>Internacionales</h5>
+								<p>Exportamos con amor y calidad.</p>
+							</div>
+							<!--inside-->
+						</div>
+						<div class="col-md-4">
+							<div class="inside text-center bg-yellow">
+								<h5>El mejor soporte</h5>
+								<p>Tu eres nuestra principal prioridad.</p>
+							</div>
+							<!--inside-->
+						</div>
+					</div>
+				</div>
+				<!--banner-color-->
+			</div>
+			<!--=============== End of Grid Product ===================-->
+
+
+			<!--===================== Footer ========================-->
+			<footer class="bg-yellow" id="contacto">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="subscribe text-center">
+								<h2>{{ $t("web.contact") }}</h2>
+								<form id="frmContacto">
+									<div class="form-group" style="margin-bottom: 3em;">
+										<input type="email" placeholder="Correo" v-model="email" name="email">
+									</div>
+
+									<div class="form-group">
+										<input type="text" placeholder="Mensaje" v-model="mensaje" name="mensaje">
+										<div class="custom-btn bg-black text-yellow" @click="enviar">Enviar</div>
+									</div>
+
+								</form>
+							</div>
+							<!--subscribe-->
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="widget-page">
+								<h4 class="widget-title">Menu</h4>
+								<a href="acerca.html">{{ $t("menu.about") }}</a>
+								<a href="productos.html">{{ $t("menu.products") }}</a>
+								<a href="mundo.html">{{ $t("menu.world") }}</a>
+							</div>
+							<!--widget-page-->
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="widget-page">
+								<h4 class="widget-title">Enlaces de Interés</h4>
+								<a href="http://dircetur.regiontacna.gob.pe/" target="_blank">Dircetur Tacna</a>
+								<a href="https://www.sierraexportadora.gob.pe/" target="_blank">Sierra Exportadora</a>
+								<a href="https://www.promperu.gob.pe/" target="_blank">Prom Peru</a>
+							</div>
+							<!--widget-page-->
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="widget-contact">
+								<h4 class="widget-title">{{ $t("web.location") }}</h4>
+								<h6 class="widget-subtitle">{{ $t("web.office") }}:</h6>
+								<address>Monte verde II Etapa B-15 - Tacna</address>
+
+								<h6 class="widget-subtitle">{{ $t("web.plants") }}</h6>
+								<address>Asociacion de pequeños y medianos industriales Francisco Antonio de Zela Mza. B
+									lote. 8 Ciudad Nueva - Tacna</address>
+							</div>
+							<!--widget-contact-->
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="widget-page">
+								<h4 class="widget-title">{{ $t("menu.contact") }}</h4>
+								<a href="tel:+950009769">(+51) 950 009769</a>
+								<a href="tel:+952525699">(+51) 952 525699</a>
+								<h4 class="widget-title">{{ $t("web.mail") }}</h4>
+								<a href="mailto:operaciones@agroexportelohim.com">operaciones@agroexportelohim.com</a>
+								<a href="mailto:exportaciones.elohim@gmail.com">exportaciones.elohim@gmail.com</a>
+							</div>
+							<!--widget-contact-->
+						</div>
+					</div>
+					<div class="copyright">
+						<p>Copyright &copy; Elohim Jamfled 2019. Todos los derechos reservados | Developed with <i
+								class="fa fa-heart text-pink"></i> by <a href="#">Metriqa</a></p>
+					</div>
+				</div>
+				<div id="back-to-top"><i class="fa fa-angle-up"></i></div>
+			</footer>
+			<!--================= End of Footer =====================-->
+		</div>
+		<!--wrapper-->
+	</div>
+	<script src="assets/js/lib/jquery.js"></script>
+	<script src="assets/js/lib/bootstrap.min.js"></script>
+	<script src="assets/js/lib/owl.carousel.min.js"></script>
+	<script src="assets/js/lib/jquery-ui.min.js"></script>
+	<script src="assets/js/lib/TweenMax.min.js"></script>
+	<script src="assets/js/lib/lazyYT.js"></script>
+	<script src="assets/js/lib/masonry.pkgd.min.js"></script>
+	<script src="assets/js/lib/jquery.filterizr.min.js"></script>
+	<script src="assets/js/lib/slick.min.js"></script>
+	<script src="assets/js/lib/jquery.counterup.min.js"></script>
+	<script src="assets/js/lib/waypoints.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="assets/js/vue-i18n.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/elohim.js"></script>
+</body>
+</htm>
